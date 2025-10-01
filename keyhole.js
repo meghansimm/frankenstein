@@ -73,9 +73,9 @@ class Effect {
             
 
             if (e.deltaY < 0) { // Scrolled up
-                this.mouse.radius = Math.max(this.mouse.radius / 1.012, 500000);
+                this.mouse.radius = Math.max(this.mouse.radius / 1.018, 500000);
             } else { // Scrolled down
-                this.mouse.radius = Math.min(this.mouse.radius * 1.012, 300000000);
+                this.mouse.radius = Math.min(this.mouse.radius * 1.018, 400000000);
             }
         });
 
