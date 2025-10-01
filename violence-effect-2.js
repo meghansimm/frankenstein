@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     if (this.redTimer > 0) {
             this.redTimer--;
             if (this.redTimer === 0) {
-                this.color = "#FF0000";
+                this.color = "#F1271C";
                 this.hasTurnedRed = true;
             }
         }
