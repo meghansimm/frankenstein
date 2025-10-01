@@ -1,0 +1,611 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 0;
+}
+@font-face {
+  font-family: "Hersey"; /* Choose a name for your font */
+  src: url("Hershey-Noailles-OldFrench-Bold.woff") format("woff"),
+}
+body{
+    background-color: white;
+    
+    
+}
+
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+div .canvas{
+    position: relative;
+}
+div .texts{
+    position: relative;
+}
+
+#sun{
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+
+}
+#fire{
+    z-index: 6;
+    position: absolute;
+    top: 1000px;
+    left: 0;
+    background-color: transparent;
+
+}
+
+#townships{
+    z-index: 7;
+    position: absolute;
+    top: 2000px;
+    left: 0;
+    background-color: transparent;
+
+}
+
+#cottagers{
+    z-index: 8;
+    position: absolute;
+    top: 3000px;
+    left: 0;
+    background-color: transparent;
+
+}
+
+#speech{
+    z-index: 9;
+    position: absolute;
+    top: 4000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#appearance{
+    z-index: 10;
+    position: absolute;
+    top: 5000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#caste{
+    z-index: 11;
+    position: absolute;
+    top: 6000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#death{
+    z-index: 12;
+    position: absolute;
+    top: 7000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#lineage{
+    z-index: 13;
+    position: absolute;
+    top: 8000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#literature{
+    z-index: 14;
+    position: absolute;
+    top: 9000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#existentialism{
+    z-index: 15;
+    position: absolute;
+    top: 10000px;
+    left: 0;
+    background-color: transparent;
+
+}
+#kindness{
+    z-index: 16;
+    position: absolute;
+    top: 11200px;
+    left: 0;
+    background-color: transparent;
+
+}
+#violencehouse{
+    z-index: 1;
+    position: absolute;
+    top: 12500px;
+    left: 0;
+    background-color: transparent;
+
+}
+#violencefire-2{
+    z-index: 1;
+    position: absolute;
+    top: 12500px;
+    left: 0;
+    background-color: transparent;
+
+}
+
+#fade-overlay{
+        z-index: 2;
+        position: absolute;
+        top: 12500px;
+        left: 0;
+        width: 100%;
+        height: 100px; /* Adjust for fade length */
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        pointer-events: none; /* Allows interaction with canvas underneath */
+
+
+}
+  
+
+
+
+#keyhole{
+
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: transparent;
+    /* background-color: red; */
+}
+
+
+
+
+#scroll {
+    width: 100%;
+    height: 2000px;
+
+}
+
+img {
+    display: none;
+}
+
+
+
+
+
+/*
+=PULL OUT
+============================================= */
+
+#info-container{
+display: flex;
+z-index: 5000;
+position: fixed;
+padding: 15px;
+margin: 10px;
+height: calc(100vh - 20px);
+width: 25%;
+background-color: black;
+border: 1px solid white;
+border-radius: 1px;
+overflow-y: auto;
+flex-direction: column;
+flex-grow: 1;
+
+
+}
+
+#info-container::-webkit-scrollbar {
+    width: 4px;
+
+
+}
+
+
+#info-container::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background: white;
+
+}
+
+
+
+
+/*
+=Accordion
+============================================= */
+.proj-desc {
+  color: white;
+  max-height: 600px;
+  overflow-y: hidden;
+  transition: .25s ease-in-out;
+  margin-left: 0;
+  margin-top: 40px;
+  padding-top: 10px;
+    border-top: 1px solid white;
+
+}
+.proj-desc p{
+    font: 18px/1.25 "Hersey", serif;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white ;
+}
+
+input#collapse1:checked ~  .proj-desc {
+  color: none;
+  max-height: 0;
+}
+
+.index {
+  color: white;
+  max-height: 20000px;
+  overflow-y: hidden;
+  transition: 0.25s ease-in-out;
+  margin-left: 0;
+  margin-top: 40px;
+  margin-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+
+.index > div {
+    position: relative;
+}
+
+
+input#collapse2:checked ~  .index {
+
+  color: none;
+  max-height: 0;
+}
+
+
+
+
+
+/*
+=Checkbox
+============================================= */
+input {
+  display: none;
+}
+
+/*
+=Project Description
+============================================= */
+.proj-desc, .index {
+    margin-top: 20px;
+  position: relative;
+}
+
+/*
+=Chevron Container
+============================================= */
+.collapse {
+  position: absolute;
+right: 0;
+padding-right: 10px;
+transform: translate(-3px,-20px);
+}
+.collapse:hover div {
+background-color: rgb(70, 70, 70);
+}
+
+/*
+=Label + Rotate Wrapper
+============================================= */
+.collapse div {
+  height: 100%;
+  width: 100%;
+  padding: 0 7px;
+  display: flex;
+  align-items: center;
+  transition: .1s ease-in;
+  background-color: black;
+  border: 1px solid white;
+    border-radius: 1px;
+    font: 14px/1.5 "Hersey", serif;
+    color: white;
+
+}
+
+.collapse .collapse-button {
+    display: flex;
+}
+
+.collapse .expand-button {
+    display: none;
+}
+
+
+
+
+.collapse label {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; right: 0; bottom: 0; left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input#collapse2:checked ~  .collapse .collapse-button {
+  display:none;
+}
+
+input#collapse2:checked ~  .collapse .expand-button {
+  display:flex;
+}
+
+input#collapse1:checked ~  .collapse .collapse-button {
+  display:none;
+}
+
+input#collapse1:checked ~  .collapse .expand-button {
+  display:flex;
+}
+
+
+
+/*
+=Chevron Lines
+============================================= */
+
+
+h2 {
+font: 400 15px/1.5 pragmatapro-fraktur, serif; /* use the font shorthand property to set the font parameters */
+letter-spacing: 5px; /* enhance the appearance of the text by adding letter-spacing */
+text-transform: uppercase;
+color: white;
+padding: 0;
+}
+
+
+
+.parents:nth-child(2){
+    padding-top: 30px;
+}
+
+
+/*
+=INDEX CONTENTS
+============================================= */
+h3 {
+font: 400 18px/1.5 "Hersey", serif; /* use the font shorthand property to set the font parameters */
+color: white;
+padding: 5px 0;
+border-top: 1px solid white;
+}
+
+/*
+=Accordion
+============================================= */
+.accordion {
+  color: none;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: 0.5s ease-in-out;
+  font: 16px/1.25 "Hersey", serif;
+  
+}
+
+.accordion p {
+    hanging-punctuation: first;
+}
+
+.accordion p:nth-child(odd) {
+    font: 400 11px/1.5 pragmatapro-fraktur, serif; /* use the font shorthand property to set the font parameters */
+    letter-spacing: 5px; /* enhance the appearance of the text by adding letter-spacing */
+    text-transform: uppercase;
+    margin: 5px 0 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid white;
+}
+
+.accordion p:nth-child(5) {
+    font: 400 16px/1.5 "Hersey", serif; /* use the font shorthand property to set the font parameters */
+    letter-spacing: 0; /* enhance the appearance of the text by adding letter-spacing */
+    text-transform: none;
+    margin: 15px 0 30px 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 1px;
+    background-color: white;
+    transition: .1s ease-in;
+}
+
+.accordion p:nth-child(5):hover {
+    background-color: lightgrey;
+}
+
+.accordion p a {
+    text-decoration: none;
+    color: black;
+}
+
+input:checked ~ .accordion {
+  color: white;
+  max-height: 800px;
+}
+
+
+
+
+
+
+
+/*
+=Chevron Container
+============================================= */
+.chevron {
+  position: absolute;
+  top: 0; right: 0;
+  width: 35px; height: 35px;
+  padding: 5px;
+  transform: translate(5px, 3px);
+}
+
+
+/*
+=Label + Rotate Wrapper
+============================================= */
+.chevron .rotate-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 0.35s ease-in-out;
+}
+
+input:checked + .chevron .rotate-wrapper {
+  transform: rotate(180deg);
+}
+
+.chevron label {
+  background-color: lightskyblue;
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; right: 0; bottom: 0; left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+/*
+=Chevron Lines
+============================================= */
+.chevron .rotate-wrapper::before,
+.chevron .rotate-wrapper::after {
+  content: "";
+  background-color: white;
+  width: 50%; height: 1.5px;
+}
+
+.chevron .rotate-wrapper::before {
+  transform: rotate(45deg) translate(1.7px, -1.7px);
+}
+.chevron .rotate-wrapper::after {
+  transform: rotate(-45deg) translate(-1.7px, -1.7px);
+}
+
+
+
+
+
+/*
+=FOOTER
+============================================= */
+
+#info-container > p {
+    padding: 10px 0 20px 0;
+    font: 12px/1.25 "Hersey", serif;
+    color: white;
+    text-align: center;
+}
+
+
+
+#info-wrapper {
+width: 26%;
+  display: flex;
+  position: fixed;
+  transition: 0.5s ease;
+  z-index: 6000;
+  right: -25.5%;
+  
+}
+
+/*
+=transition the nav container into view */
+input:checked + #info-wrapper {
+  right: 0;
+}
+
+.col-1 {
+background-color: black;
+border-radius: 20px;
+width: 20px;
+height: 20px;
+transform: translate(-22px, 10px);
+transition: .1s ease-in;
+
+}
+
+.col-1:hover{
+background-color: darkgrey;
+
+}
+
+
+.hb_wrapper {
+width: 20px; height: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.hb_wrapper p {
+    font: 400 16px/1.5 "Hersey", serif;
+    text-align: center;
+}
+
+
+
+input {
+  display: none;
+}
+
+/*
+=style the label */
+.col-1 label {
+  width: 20px; height: 20px;
+  display: block;
+  position: absolute;
+  z-index: 5000;
+  cursor: pointer;
+}
+
+/*
+=style the center + pseudo lines */
+.hb_lines,
+.hb_lines::before {
+  background-color: white;
+  height: 1.5px; width: 100%;
+}
+
+/*
+=create a new positioning context for the top + bottom pseudo lines */
+.hb_lines {
+  position: relative;
+}
+
+
+
+/*
+=position + transition the pseudo lines */
+.hb_lines::before,
+.hb_lines::after {
+  content: "";
+  position: absolute;
+  transition: .3s ease-in-out;
+}
+
+
+/*
+=offset the pseudo lines above + below the centerline */
+
+.hb_lines::before{
+transform: rotate(90deg);
+} 
