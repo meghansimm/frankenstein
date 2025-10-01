@@ -302,7 +302,8 @@ padding-right: 10px;
 transform: translate(-3px,-20px);
 }
 .collapse:hover div {
-background-color: rgb(70, 70, 70);
+background-color: black;
+color: white;
 }
 
 /*
@@ -314,12 +315,12 @@ background-color: rgb(70, 70, 70);
   padding: 0 7px;
   display: flex;
   align-items: center;
-  transition: .1s ease-in;
-  background-color: black;
+  /* transition: .1s ease-in; */
+  background-color: white;
   border: 1px solid white;
     border-radius: 1px;
     font: 14px/1.5 "Hersey", serif;
-    color: white;
+    color: black;
 
 }
 
@@ -417,6 +418,7 @@ border-top: 1px solid white;
 
 .accordion p:nth-child(5) {
     font: 400 16px/1.5 "Hersey", serif; /* use the font shorthand property to set the font parameters */
+    /* color: black; */
     letter-spacing: 0; /* enhance the appearance of the text by adding letter-spacing */
     text-transform: none;
     margin: 15px 0 30px 0;
@@ -424,17 +426,25 @@ border-top: 1px solid white;
     text-align: center;
     border-radius: 1px;
     background-color: white;
-    transition: .1s ease-in;
+    border: 1px, solid, white;
+    /* transition: .1s ease-in; */
 }
 
 .accordion p:nth-child(5):hover {
-    background-color: lightgrey;
+    background-color: black;
+    /* color: white; */
 }
 
-.accordion p a {
+.accordion p:nth-child(5) a {
     text-decoration: none;
     color: black;
 }
+
+.accordion p:nth-child(5):hover a {
+    text-decoration: none;
+    color: white;
+}
+
 
 input:checked ~ .accordion {
   color: white;
@@ -543,10 +553,13 @@ transition: .1s ease-in;
 
 }
 
-.col-1:hover{
+/* .col-1:hover{
 background-color: darkgrey;
+mix-blend-mode: multiply;
 
-}
+} */
+
+
 
 
 .hb_wrapper {
@@ -589,6 +602,11 @@ input {
 =create a new positioning context for the top + bottom pseudo lines */
 .hb_lines {
   position: relative;
+  transition: ease-in-out .3s;
+}
+
+.col-1:hover .hb_lines {
+  transform: rotate(-90deg);
 }
 
 
