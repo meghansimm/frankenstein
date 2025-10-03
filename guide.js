@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const fadeDiv = document.getElementById('guide');
   const initialOpacity = 1; // Starting opacity
   const fadeStartScroll = 0; // Scroll position (in pixels) where fading begins
-  const fadeEndScroll = 100; // Scroll position (in pixels) where fading ends (opacity becomes 0)
+  const fadeEndScroll = 200; // Scroll position (in pixels) where fading ends (opacity becomes 0)
 
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;

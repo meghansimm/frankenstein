@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', function() { // Use DOMContentLoaded
             this.canvasHeight = canvasHeight;
             this.textX = Math.random() * canvasWidth;
             this.textY = Math.random() * canvasHeight;
-            this.fontSize = 600; // Increased size for better effect
+            this.fontSize = 700; // Increased size for better effect
             this.lineHeight = this.fontSize * 0.8;
             this.maxTextWidth = this.canvasWidth * 0.8;
             this.particles = [];
