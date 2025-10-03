@@ -205,7 +205,7 @@ class Effect {
             y: (canvas.height / 2)
         };
         const minRadius = 0;
-        const maxRadius = 4000000000;
+        const maxRadius = 4800000000;
 
         // Update mouse.x and mouse.y on mousemove
         window.addEventListener('mousemove', e => {
