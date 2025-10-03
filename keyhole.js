@@ -200,12 +200,12 @@ class Effect {
         this.particlesArray = [];
         this.gap = 5;
         this.mouse = {
-            radius: 10000000,
-            x: 0,
-            y: 0
+            radius: 0,
+            x: (canvas.width / 2),
+            y: (canvas.height / 2)
         };
-        const minRadius = 10000000;
-        const maxRadius = 4000000000;
+        const minRadius = 0;
+        const maxRadius = 3500000000;
 
         // Update mouse.x and mouse.y on mousemove
         window.addEventListener('mousemove', e => {
@@ -220,7 +220,7 @@ class Effect {
             const scrollDistance = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             const scrollProgress = maxScroll > 0 ? Math.min(scrollDistance / maxScroll, 1) : 0;
-            const easedProgress = Math.pow(scrollProgress, 3); // Use a power > 1 for ease-in effect
+            const easedProgress = Math.pow(scrollProgress, 2.5); // Use a power > 1 for ease-in effect
 
             // Map the eased progress to the desired radius range
             this.mouse.radius = minRadius + easedProgress * (maxRadius - minRadius);
