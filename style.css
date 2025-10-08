@@ -215,13 +215,14 @@ position: fixed;
 padding: 15px;
 margin: 10px;
 height: calc(100vh - 20px);
-width: 25%;
+width: 400px;
 background-color: black;
 border: 1px solid white;
 border-radius: 1px;
 overflow-y: auto;
 flex-direction: column;
 flex-grow: 1;
+
 
 
 }
@@ -536,13 +537,15 @@ input:checked + .chevron .rotate-wrapper {
 
 
 
+
 #info-wrapper {
-width: 26%;
+width: 420px;
   display: flex;
   position: fixed;
   transition: 0.5s ease;
   z-index: 6000;
-  right: -25.5%;
+  right: -420px;
+  
   
 }
 
