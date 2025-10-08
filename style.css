@@ -162,7 +162,7 @@ div .texts{
 #fade-overlay{
         z-index: 2;
         position: absolute;
-        top: 12500px;
+        top: 13500px;
         left: 0;
         width: 100%;
         height: 100px; /* Adjust for fade length */
